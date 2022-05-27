@@ -3,6 +3,7 @@ package hello.itemservice.web.validation;
 import hello.itemservice.domain.item.Item;
 import hello.itemservice.domain.item.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -16,6 +17,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/validation/v1/items")
 @RequiredArgsConstructor
+@Slf4j
 public class ValidationItemControllerV1 {
 
     private final ItemRepository itemRepository;
@@ -69,6 +71,7 @@ public class ValidationItemControllerV1 {
 
         // 검증에 실패하면 다시 입력 폼으로
         if(!erros.isEmpty()) {
+            log.info("errors = {}", erros);
             model.addAttribute("errors", erros);
             return "validation/v1/addForm";
         }
