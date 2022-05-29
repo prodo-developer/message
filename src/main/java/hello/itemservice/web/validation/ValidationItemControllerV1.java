@@ -58,7 +58,7 @@ public class ValidationItemControllerV1 {
         }
 
         if(item.getQuantity() == null || item.getQuantity() >= 9999) {
-            erros.put("price", "수량은 최대 9,999 까지 허용합니다.");
+            erros.put("quantity", "수량은 최대 9,999 까지 허용합니다.");
         }
 
         // 특정 필드가 아닌 복합 롤 검증
